@@ -16,7 +16,7 @@ class UserController extends AppController {
      */
     public function login() {
 
-        $this->set();
+        //$this->set();
     }
 
     /**
