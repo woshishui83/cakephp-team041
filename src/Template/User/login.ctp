@@ -42,7 +42,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 	</head>
 	<body>
 		<div class="top-bar primary-bg">
-			<img class="logo" src="images/WechatIMG6.png" />
+			<?php echo $this->Html->image("team041/WechatIMG6.png", array('class'=>'logo'));  ?>
 			<div class="title">DANUBE TRAVER AGENCY</div>
 			<div class="text">
 				<span>
@@ -61,17 +61,17 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 				<span class="glyphicon glyphicon-search"></span>
 			</div>
 		</div>
-		<img class="banner" src="images/WechatIMG7.jpeg" />
+		<?php echo $this->Html->image("team041/WechatIMG7.jpeg", array('class'=>'banner'));  ?>
 		<div class="bottom-bar primary-bg">
 			<div class="left">
 				<div class="title"><span>Travel Packages</span></div>
 				<div class="img-box">
 					<div class="left">
-						<img src="images/WechatIMG470.png" />
+						<?php echo $this->Html->image("team041/WechatIMG470.png");  ?>
 						<div>Vietnam</div>
 					</div>
 					<div class="right">
-						<img src="images/WechatIMG469.png"/>
+						<?php echo $this->Html->image("team041/WechatIMG469.png");  ?>
 						<div>Eastern europe</div>
 					</div>
 				</div>
@@ -80,11 +80,11 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 				<div class="title"><span>Special offer</span></div>
 				<div class="img-box">
 					<div class="left">
-						<img src="images/WechatIMG468.png" />
+						<?php echo $this->Html->image("team041/WechatIMG468.png");  ?>
 						<div>Slovak Spa</div>
 					</div>
 					<div class="right">
-						<img src="images/WechatIMG3.jpeg"/>
+						<?php echo $this->Html->image("team041/WechatIMG3.jpeg");  ?>
 						<div>Baltic</div>
 					</div>
 				</div>

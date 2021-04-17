@@ -47,15 +47,15 @@ Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
     // Register scoped middleware for in scopes.
-    $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
-        'httpOnly' => true,
-    ]));
+    //$routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
+    //    'httpOnly' => true,
+    //]));
 
     /*
      * Apply a middleware to the current route scope.
      * Requires middleware to be registered through `Application::routes()` with `registerMiddleware()`
      */
-    $routes->applyMiddleware('csrf');
+    //$routes->applyMiddleware('csrf');
 
     /*
      * Here, we are connecting '/' (base path) to a controller called 'Pages',
@@ -63,15 +63,18 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    $routes->connect('/', ['controller' => 'User', 'action' => 'login']);
+    //$routes->connect('/', ['controller' => 'User', 'action' => 'login']);
+    $routes->connect('/', ['controller' => 'User', 'action' => 'reg']);
+    //$routes->connect('/login', ['controller' => 'User', 'action' => 'login']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
-    $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
+    //$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
 
     //$routes->connect('/user', ['controller' => 'User', 'action' => 'login']);
+    //$routes->connect('/reg', ['controller' => 'User', 'action' => 'reg']);
 
 
     /*
@@ -107,3 +110,9 @@ Router::scope('/', function (RouteBuilder $routes) {
  * });
  * ```
  */
+/*Router::scope('/reg', function (RouteBuilder $routes) {
+      // No $routes->applyMiddleware() here.
+      // Connect API actions here.
+      $routes->connect('/', ['controller' => 'User', 'action' => 'reg']);
+      $routes->fallbacks(DashedRoute::class);
+});*/

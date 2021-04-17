@@ -24,6 +24,6 @@ class UserController extends AppController {
      */
     public function reg() {
 
-        $this->set();
+        //$this->set();
     }
 }
