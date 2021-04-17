@@ -1,0 +1,146 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+.primary-bg{
+	background-color: rgba(60,159,229);
+}
+.primary-color{
+    color: rgba(60,159,229);
+}
+
+.admin-btm-bar a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+/* start ---- flex layout -------*/
+.flex-layout{
+    display: flex;
+}
+.column{
+    flex-direction: column;
+}
+.align-center{
+    align-items: center;
+}
+.align-left{
+    align-items: flex-start;
+}
+.align-right{
+    align-items: flex-end;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-right{
+    justify-content: flex-end;
+}
+.space-between{
+    justify-content: space-between;
+}
+.space-around{
+    justify-content: space-around;
+}
+/* end ---- flex layout -------*/
+
+/* start ---margin series--- */
+.mar-t-10{
+    margin-top: 10px;
+}
+.mar-t-5{
+    margin-top: 5px;
+}
+.mar-b-10{
+    margin-bottom: 10px;
+}
+.mar-t-20{
+    margin-top: 20px;
+}
+.mar-t-30{
+    margin-top: 30px;
+}
+.mar-t-40{
+    margin-top: 40px;
+}
+.mar-t-50{
+    margin-top: 50px;
+}
+.mar-l-10{
+    margin-left: 10px;
+}
+.mar-l-20{
+    margin-left: 20px;
+}
+.mar-l-30{
+    margin-left: 30px;
+}
+.mar-r-20{
+    margin-right: 20px;
+}
+/* end ---margin series--- */
+
+/* start ---font-size--- */
+.fz-30{
+    font-size: 30px;
+}
+.fz-40{
+    font-size: 40px;
+}
+.fz-24{
+    font-size: 24px;
+}
+.fz-20{
+    font-size: 20px;
+}
+.fz-18{
+    font-size: 18px;
+}
+.fz-16{
+    font-size: 16px;
+}
+/* end ---font-size--- */
+
+/* stsrt ---gridlayout--- */
+.grid-layout{
+    display: grid;
+}
+/* end ---gridlayout--- */
+
+
+.admin-top-bar{
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 60px;
+    background: rgba(60,159,229);
+    color: #fff;
+}
+.admin-btm-bar{
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 70px;
+    background: #A5BFD3;
+    color: #fff;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+}
+.admin-logo{
+    border-radius: 30px;
+}
+.admin-icon{
+    border-radius: 30px;
+}
+.selected a{
+    color: rgba(60,159,229);
+}
+
+
+.line{
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #000;
+}
+.line-2{
+    width: 100%;
+    height: 3px;
+    border-bottom: 3px solid #000;
+}
