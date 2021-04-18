@@ -79,4 +79,19 @@ class UserController extends AppController {
         
         //$this->set();
     }
+
+    /**
+     * 注册
+     */
+    public function reg2() {
+
+    }
+
+    /**
+     * 注册
+     */
+    public function reg3() {
+
+    }
+
 }

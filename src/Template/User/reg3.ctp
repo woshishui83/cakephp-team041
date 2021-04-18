@@ -35,54 +35,72 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 	<head>
 		<meta charset="UTF-8">
 		<title>Register</title>
-		<?= $this->Html->css('team041/bootstrap.css') ?>
-    	<?= $this->Html->css('team041/common.css') ?>
-    	<?= $this->Html->css('team041/register.css') ?>
+
+		<link rel="stylesheet" href="/webroot/css/team041/bootstrap.css" />
+        <link rel="stylesheet" href="/webroot/css/team041/common.css" />
+        <link rel="stylesheet" href="/webroot/css/team041/register.css" />
+
+        <script type="text/javascript" src="/webroot/js/team041/jquery-1.10.2.min.js" ></script>
+        <script type="text/javascript" src="/webroot/js/team041/jquery.form.min.js" ></script>
+        <script type="text/javascript" src="/webroot/js/team041/jquery.validate.min.js" ></script>
+        <script type="text/javascript">
+        $(function() {
+            //表单验证
+            $('#form_step3').validate({
+                ignore: "",
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        dataType: "json",
+                        success: function(data) {
+                            if (data.code == 0) {
+                                //alert(data.msg);
+                                location.href = "/index.php";
+                            } else {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+                }
+            });
+
+        });
+        </script>
 	</head>
 	<body>
 		<div class="img-bg-box">
-			<div id="top-title" class="top-text">DANUBER TRAVER AGENCY</div>
-			<?php echo $this->Html->image("team041/WechatIMG3.jpeg", array('id'=>'img-bg'));  ?>
+			<div id="top-title" style="color: #000000;" class="top-text">DANUBER TRAVER AGENCY</div>
+			<img id="img-bg" src="images/WechatIMG4.jpeg" />
 		</div>
 		<div class="register-box">
 			<div class="register">
-				<form id="form_step1" method="post">
-				<div class="step-1 show">
-					<div class="title">YOUR DREAM JOURNEY STARTS HERE</div>
-					<div class="input-group">
-						<div>Enter email here:</div>
-						<input type="email" class="form-control" placeholder="email" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group">
-						<div>Enter password:</div>
-						<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group">
-						<div>Confirm password:</div>
-						<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
-					</div>
+			    <form id="form_step3" method="post" action="/index.php/user/reg3">
+				<div class="step-3 show">
+				    <div class="title">FILL IN TRAVEL PREDERENCE</div>
+					<div class="text">Travel Styles:</div>
+					<div class="choose-btn">Culture</div>
+					<div class="choose-btn">Gourmet food</div>
+					<div class="choose-btn active">Landscape</div>
 					<div class="btn-box">
-						<a href="register2.php">
-					    	<button data-p="step-1" data-n="step-2" type="submit" class="btn primary-bg">Next</button>
-						</a>
+					    <a href="admin/login/login.php">
+					    	<button type="button" class="btn primary-bg">Done</button>
+					    </a>
 					</div>
 				</div>
-				</form>
-				<div class="step-box">
-				    <div class="y active">
+				<div class="step-box ">
+				    <div class="y ">
 				        <span>STEP 1</span>
 				    </div>
 				    <div class="x"></div>
-				    <div class="y">
+				    <div class="y ">
 				        <span>STEP 2</span>
 				    </div>
 				    <div class="x"></div>
-				    <div class="y">
+				    <div class="y active">
 				        <span>STEP 3</span>
 				    </div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</body>
 </html>
-

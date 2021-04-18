@@ -35,45 +35,77 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 	<head>
 		<meta charset="UTF-8">
 		<title>Register</title>
-		<?= $this->Html->css('team041/bootstrap.css') ?>
-    	<?= $this->Html->css('team041/common.css') ?>
-    	<?= $this->Html->css('team041/register.css') ?>
+
+		<link rel="stylesheet" href="/webroot/css/team041/bootstrap.css" />
+        <link rel="stylesheet" href="/webroot/css/team041/common.css" />
+        <link rel="stylesheet" href="/webroot/css/team041/register.css" />
+
+        <script type="text/javascript" src="/webroot/js/team041/jquery-1.10.2.min.js" ></script>
+        <script type="text/javascript" src="/webroot/js/team041/jquery.form.min.js" ></script>
+        <script type="text/javascript" src="/webroot/js/team041/jquery.validate.min.js" ></script>
+        <script type="text/javascript">
+        $(function() {
+            //表单验证
+            $('#form_step2').validate({
+                ignore: "",
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        dataType: "json",
+                        success: function(data) {
+                            if (data.code == 0) {
+                                //alert(data.msg);
+                                location.href = "/index.php/user/reg3";
+                            } else {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+                }
+            });
+
+        });
+        </script>
+
+
 	</head>
 	<body>
 		<div class="img-bg-box">
-			<div id="top-title" class="top-text">DANUBER TRAVER AGENCY</div>
-			<?php echo $this->Html->image("team041/WechatIMG3.jpeg", array('id'=>'img-bg'));  ?>
+			<div id="top-title" style="color: #AAAAAA;" class="top-text">DANUBER TRAVER AGENCY</div>
+			<img id="img-bg" src="/webroot/img/team041/WechatIMG5.jpeg" />
 		</div>
 		<div class="register-box">
 			<div class="register">
-				<form id="form_step1" method="post">
-				<div class="step-1 show">
-					<div class="title">YOUR DREAM JOURNEY STARTS HERE</div>
+			    <form id="form_step2" method="post" action="/index.php/user/reg2">
+				<div class="step-2 show">
+				    <div class="title">FILL IN PERSONAL INFORMATION</div>
 					<div class="input-group">
-						<div>Enter email here:</div>
-						<input type="email" class="form-control" placeholder="email" aria-describedby="basic-addon1">
+						<div>Phone Number:</div>
+						<input type="text" class="form-control" placeholder="phone" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
-						<div>Enter password:</div>
-						<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+						<div>Date Of Birth:</div>
+						<input type="text" class="form-control" placeholder="Date Of Birth" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
-						<div>Confirm password:</div>
-						<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+						<div>Living Area:</div>
+						<div class="input-box">
+						    <input type="text" class="form-control" placeholder="Country" aria-describedby="basic-addon1">
+						    <input type="text" class="form-control" placeholder="State" aria-describedby="basic-addon1">
+						    <input type="text" class="form-control" placeholder="City" aria-describedby="basic-addon1">
+						</div>
 					</div>
 					<div class="btn-box">
-						<a href="register2.php">
-					    	<button data-p="step-1" data-n="step-2" type="submit" class="btn primary-bg">Next</button>
+						<a href="register3.php">
+					    	<button data-p="step-2" data-n="step-3" type="button" class="btn primary-bg">Next</button>
 						</a>
 					</div>
 				</div>
-				</form>
 				<div class="step-box">
-				    <div class="y active">
+				    <div class="y ">
 				        <span>STEP 1</span>
 				    </div>
 				    <div class="x"></div>
-				    <div class="y">
+				    <div class="y active">
 				        <span>STEP 2</span>
 				    </div>
 				    <div class="x"></div>
@@ -81,8 +113,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 				        <span>STEP 3</span>
 				    </div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</body>
 </html>
-

@@ -51,9 +51,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     $(form).ajaxSubmit({
                         dataType: "json",
                         success: function(data) {
-                            if (data.done) {
-                                alert(data.msg);
-                                location.href = "{url app=driver_route}";
+                            if (data.code == 0) {
+                                //alert(data.msg);
+                                location.href = "/index.php/user/reg2";
                             } else {
                                 alert(data.msg);
                             }
