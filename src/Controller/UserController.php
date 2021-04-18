@@ -13,13 +13,54 @@ use Cake\Validation\Validator;
 class UserController extends AppController {
 
     /**
+     * 首页
+     */
+    public function index() {
+
+        //$this->set();
+    }
+    /**
      * 登录
      */
     public function login() {
 
-        //$this->set();
-    }
+        if ($this->request->is('post')) {
+            $this->render(false);
 
+            $validator = new Validator();
+            $password = $this->request->getData('password');
+
+            $validator
+                ->requirePresence('email')
+                ->notEmptyString('email', 'Please fill this email')
+                ->add('email', 'validFormat', [
+                    'rule' => 'email',
+                    'message' => 'E-mail must be valid'
+                ])
+                ->requirePresence('password')
+                ->notEmptyString('password', 'Please fill this password');
+
+            // Prior to 3.9 use $validator->errors()
+            $errors = $validator->validate($this->request->getData());
+            if (empty($errors)) {
+                $res = array(
+                    'code' => 0,
+                    'result' => [],
+                    'msg' => ''
+                );
+            } else {
+                $res = array(
+                    'code' => 1,
+                    'result' => $errors,
+                    'msg' => array_values($errors)[0][key(array_values($errors)[0])]
+                );
+            }
+
+            echo json_encode($res);exit;
+
+        }
+
+    }
     /**
      * 注册
      */
@@ -41,6 +82,14 @@ class UserController extends AppController {
 			    ])
 			    ->requirePresence('password')
 			    ->notEmptyString('password', 'Please fill this password')
+                ->add('password', '﻿isPasswd', [
+                    'rule' => function ($password) {
+                        $res = preg_match('/^(?=.*[A-Z])[a-zA-Z0-9]+$/', $password);
+		                if (!$res) return false;
+			            return true;
+                    },
+                    'message' => 'The password contains at least one capital letter'
+                ])
 			    ->requirePresence('password_confirm')
                 ->notEmptyString('password_confirm', 'Please fill this password_confirm')
 			    ->add('password_confirm', 'custom', [

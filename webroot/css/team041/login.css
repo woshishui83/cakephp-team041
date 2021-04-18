@@ -1,0 +1,75 @@
+body{
+    background: rgba(60,159,229);
+    color: #fff;
+    user-select: none;
+}
+a{
+    text-decoration: underline;
+    color: #fff;
+}
+.bar{
+    height: 50px;
+    color: #fff;
+    margin-right: 20px;
+    font-size: 24px;
+}
+.concent{
+    text-align: center;
+}
+.logo{
+    border-radius: 60px;
+}
+.title{
+    font-size: 30px;
+}
+.input{
+    width: 390px;
+    height: 40px;
+}
+.input-text{
+    font-size: 20px;
+}
+.checkbox{
+    display: inline;
+}
+.button{
+    width: 390px;
+    height: 60px;
+    background: #41A365;
+    font-size: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #fff;
+}
+.fz-30{
+    font-size: 30px;
+}
+.pwd-input{
+    position: relative;
+}
+.eye{
+    position: absolute;
+    color: #999999;
+    right: 20px;
+    top: 6px;
+    font-size: 20px;
+}
+.icon-box{
+    overflow: hidden;
+    height: 32px;
+}
+.icon{
+    animation:mymove-after 0.5s forwards;
+}
+.icon:hover{
+    animation:mymove 0.5s forwards;
+}
+
+@keyframes mymove {
+    /* from {font-size: 12px;} */
+    to {font-size: 38px;}
+}
+@keyframes mymove-after {
+    /* from {font-size: 12px;} */
+    to {font-size: 30px;}
+}

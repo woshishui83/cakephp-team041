@@ -32,63 +32,87 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 
 <!DOCTYPE html>
 <html>
-	<head>
-	<meta charset="UTF-8">
-	<title>Home</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin sign in</title>
 
-    <?= $this->Html->css('team041/bootstrap.css') ?>
-    <?= $this->Html->css('team041/common.css') ?>
-    <?= $this->Html->css('team041/index.css') ?>
-	</head>
-	<body>
-		<div class="top-bar primary-bg">
-			<?php echo $this->Html->image("team041/WechatIMG6.png", array('class'=>'logo'));  ?>
-			<div class="title">DANUBE TRAVER AGENCY</div>
-			<div class="text">
-				<span>
-					<a href="/index.php/user/reg">Sign in / Register</a>
-				</span>
-			</div>
-		</div>
-		<div class="nav-box">
-			<div class="nav">
-				<a href="#">HOME</a>
-				<a href="#">SERVICES</a>
-				<a href="#">TRAVERING PLAN</a>
-				<a href="#">DESTINATION</a>
-				<a href="#">ACTIVITIES</a>
-				<a href="#">CONTACT US</a>
-				<span class="glyphicon glyphicon-search"></span>
-			</div>
-		</div>
-		<?php echo $this->Html->image("team041/WechatIMG7.jpeg", array('class'=>'banner'));  ?>
-		<div class="bottom-bar primary-bg">
-			<div class="left">
-				<div class="title"><span>Travel Packages</span></div>
-				<div class="img-box">
-					<div class="left">
-						<?php echo $this->Html->image("team041/WechatIMG470.png");  ?>
-						<div>Vietnam</div>
-					</div>
-					<div class="right">
-						<?php echo $this->Html->image("team041/WechatIMG469.png");  ?>
-						<div>Eastern europe</div>
-					</div>
-				</div>
-			</div>
-			<div class="right">
-				<div class="title"><span>Special offer</span></div>
-				<div class="img-box">
-					<div class="left">
-						<?php echo $this->Html->image("team041/WechatIMG468.png");  ?>
-						<div>Slovak Spa</div>
-					</div>
-					<div class="right">
-						<?php echo $this->Html->image("team041/WechatIMG3.jpeg");  ?>
-						<div>Baltic</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+        <link rel="stylesheet" href="/webroot/css/team041/bootstrap.css" />
+        <link rel="stylesheet" href="/webroot/css/team041/common.css" />
+        <link rel="stylesheet" href="/webroot/css/team041/fonticon.css" />
+        <link rel="stylesheet" href="/webroot/css/team041/login.css" />
+
+        <script type="text/javascript" src="/webroot/js/team041/jquery-1.10.2.min.js" ></script>
+        <script type="text/javascript" src="/webroot/js/team041/jquery.form.min.js" ></script>
+        <script type="text/javascript" src="/webroot/js/team041/jquery.validate.min.js" ></script>
+        <script type="text/javascript">
+        $(function() {
+            //表单验证
+            $('#form_login').validate({
+                ignore: "",
+                submitHandler: function(form) {
+                    $(form).ajaxSubmit({
+                        dataType: "json",
+                        success: function(data) {
+                            if (data.code === 0) {
+                                //alert(data.msg);
+                                location.href = "/index.php";
+                            } else {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+                }
+            });
+
+        });
+        </script>
+    </head>
+    <body>
+        <!-- bar -->
+        <div class="flex-layout align-center justify-right bar mar-t-10">
+            <div><a href="javascript:;">Admin sign in</a></div>
+        </div>
+        <!-- concent -->
+        <div class="flex-layout column align-center justify-center mar-t-50">
+            <div><img width="180px" class="logo" src="/webroot/img/team041/WechatIMG6.png"></div>
+            <form id="form_login" method="post" action="/index.php/user/login">
+            <div>
+                <div class="mar-t-20 title">DANUBE TRAVER AGENCY</div>
+                <div class="mar-t-20 input-text"><span class="glyphicon glyphicon-user"></span><span class="mar-l-10">Account Name</span></div>
+                <input name="email" type="text" class="form-control input" placeholder=" account name">
+                <div class="mar-t-20 input-text"><span class="glyphicon glyphicon-lock"></span><span class="mar-l-10">Password</span></div>
+                <div class="pwd-input">
+                    <input name="password" type="password" class="form-control input" placeholder=" account name">
+                    <div  class="iconfont icon-yanjing-guan eye"></div>
+                </div>
+                <div class="mar-t-20 flex-layout">
+                      <input class="checkbox" type="checkbox"><span class="mar-l-10">remember me</span>
+                </div>
+                <div class="button flex-layout align-center justify-center mar-t-10 button_login"> login</div>
+            </div>
+            </form>
+            <div class="mar-t-10 fz-18"><a href="/index.php/user/reg">Create Account</a></div>
+            <div class="mar-t-10"><a>Forgot Password?</a></div>
+            <div class="mar-t-30">Other login methods</div>
+            <div class="flex-layout align-center justify-center fz-30 icon-box">
+                <div class="iconfont icon-apple fz-30 icon"></div>
+                <div class="iconfont icon-facebook mar-l-20  fz-30 icon"></div>
+                <div class="iconfont icon-zhifubao mar-l-20  fz-30 icon"></div>
+                <div class="iconfont icon-wechat mar-l-20  fz-30 icon"></div>
+            </div>
+            <div class="mar-t-10"><a>Privacy Policy</a></div>
+
+        </div>
+    </body>
 </html>
+
+<script type="text/javascript">
+$(function() {
+    //点击登录，提交form表单
+    $(.button_login").click(function() {
+        $("#form_login").submit();
+    });
+
+});
+</script>
+
