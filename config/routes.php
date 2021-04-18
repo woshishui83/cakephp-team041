@@ -47,9 +47,9 @@ Router::defaultRouteClass(DashedRoute::class);
 
 Router::scope('/', function (RouteBuilder $routes) {
     // Register scoped middleware for in scopes.
-    //$routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
-    //    'httpOnly' => true,
-    //]));
+    $routes->registerMiddleware('csrf', new CsrfProtectionMiddleware([
+        'httpOnly' => true,
+    ]));
 
     /*
      * Apply a middleware to the current route scope.
@@ -63,20 +63,12 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-    //$routes->connect('/', ['controller' => 'User', 'action' => 'login']);
-    $routes->connect('/', ['controller' => 'User', 'action' => 'reg']);
-    //$routes->connect('/', ['controller' => 'User', 'action' => 'reg2']);
-    //$routes->connect('/', ['controller' => 'User', 'action' => 'reg3']);
-    //$routes->connect('/login', ['controller' => 'User', 'action' => 'login']);
+    $routes->connect('/', ['controller' => 'User', 'action' => 'login']);
 
     /*
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     //$routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
-
-
-    //$routes->connect('/user', ['controller' => 'User', 'action' => 'login']);
-    //$routes->connect('/reg', ['controller' => 'User', 'action' => 'reg']);
 
 
     /*

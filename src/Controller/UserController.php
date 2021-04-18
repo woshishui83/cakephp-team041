@@ -25,36 +25,58 @@ class UserController extends AppController {
      */
     public function reg() {
 
-
-        //﻿$article = $this->Articles->newEmptyEntity();
-        //$this->Authorization->authorize($article);
-
         if ($this->request->is('post')) {
+        	$this->render(false);
+        	
             $validator = new Validator();
-
-            $validator
-                ->requirePresence('email')
+            $password = $this->request->getData('password');
+            $password_confirm = $this->request->getData('password_confirm');
+			//var_dump($password_confirm);echo "<br />";var_dump($password);
+        	$validator
+			    ->requirePresence('email')
                 ->notEmptyString('email', 'Please fill this email')
-                ->email('email')
-                ->add('email', [
-                    'length' => [
-                        'rule' => ['minLength', 50],
-                        'message' => 'Titles need to be at least 50 characters long',
-                    ]
-                ])
-                ->requirePresence('password')
-                ->notEmptyString('password', 'Please fill this password')
-                ->requirePresence('﻿password_confirm')
-                ->add('﻿password_confirm', 'length', [
-                    'rule' => ['minLength', 50],
-                    'message' => 'Articles must have a substantial body.'
-                ]);
+			    ->add('email', 'validFormat', [
+			        'rule' => 'email',
+			        'message' => 'E-mail must be valid'
+			    ])
+			    ->requirePresence('password')
+			    ->notEmptyString('password', 'Please fill this password')
+			    ->requirePresence('password_confirm')
+                ->notEmptyString('password_confirm', 'Please fill this password_confirm')
+			    ->add('password_confirm', 'custom', [
+			        'rule' => function ($password_confirm, $password) {
+				        if($password_confirm == $password ) {
+				            return false;
+				        } 
+				        return true;
+				    },
+			        'message' => 'Passwords Do Not Match'
+			    ]);
 
-            $this->Flash->success(__('Your article has been saved.'));
-            return $this->redirect(['action' => 'index']);
+			// Prior to 3.9 use $validator->errors()
+			$errors = $validator->validate($this->request->getData());
+			//var_dump($errors);exit;
+			if (empty($errors)) {
+				$res = array(
+					'code' => 0,
+					'result' => [],
+					'msg' => ''
+				);
+			} else {
+				//print_r(array_values($errors)[0][key(array_values($errors)[0])]);
+				$res = array(
+					'code' => 1,
+					'result' => $errors,
+					//'result' => array_slice(array_values($errors), 0, 1),
+					//'result' => array_values($errors)[0],
+					'msg' => array_values($errors)[0][key(array_values($errors)[0])]
+				);
+			}
+			
+			echo json_encode($res);exit;
 
-            $this->Flash->error(__('Unable to add your article.'));
         }
+        
         //$this->set();
     }
 }

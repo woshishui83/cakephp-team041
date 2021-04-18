@@ -68,24 +68,24 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 	<body>
 		<div class="img-bg-box">
 			<div id="top-title" class="top-text">DANUBER TRAVER AGENCY</div>
-			<?php echo $this->Html->image("team041/WechatIMG3.jpeg", array('id'=>'img-bg'));  ?>
+			<img id="img-bg" src="/webroot/img/team041/WechatIMG3.jpeg" />
 		</div>
 		<div class="register-box">
 			<div class="register">
-				<form id="form_step1" method="post">
+				<form id="form_step1" method="post" action="/index.php/user/reg">
 				<div class="step-1 show">
 					<div class="title">YOUR DREAM JOURNEY STARTS HERE</div>
 					<div class="input-group">
 						<div>Enter email here:</div>
-						<input type="email" class="form-control" placeholder="email" aria-describedby="basic-addon1">
+						<input name="email" type="text" class="form-control" placeholder="email" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 						<div>Enter password:</div>
-						<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+						<input name="password" type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 						<div>Confirm password:</div>
-						<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+						<input name="password_confirm" type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
 					</div>
 					<div class="btn-box">
 						<a href="register2.php">
