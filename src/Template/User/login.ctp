@@ -109,7 +109,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 <script type="text/javascript">
 $(function() {
     //点击登录，提交form表单
-    $(.button_login").click(function() {
+    $(".button_login").click(function() {
         $("#form_login").submit();
     });
 
