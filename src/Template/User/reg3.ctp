@@ -52,7 +52,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     $(form).ajaxSubmit({
                         dataType: "json",
                         success: function(data) {
-                            if (data.code == 0) {
+                            if (data.code === 0) {
                                 //alert(data.msg);
                                 location.href = "/index.php";
                             } else {
@@ -69,7 +69,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 	<body>
 		<div class="img-bg-box">
 			<div id="top-title" style="color: #000000;" class="top-text">DANUBER TRAVER AGENCY</div>
-			<img id="img-bg" src="images/WechatIMG4.jpeg" />
+			<img id="img-bg" src="/webroot/img/team041/WechatIMG4.jpeg" />
 		</div>
 		<div class="register-box">
 			<div class="register">
@@ -81,9 +81,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 					<div class="choose-btn">Gourmet food</div>
 					<div class="choose-btn active">Landscape</div>
 					<div class="btn-box">
-					    <a href="admin/login/login.php">
-					    	<button type="button" class="btn primary-bg">Done</button>
-					    </a>
+					    	<button type="submit" class="btn primary-bg">Done</button>
+					    
 					</div>
 				</div>
 				<div class="step-box ">

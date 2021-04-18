@@ -51,7 +51,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
                     $(form).ajaxSubmit({
                         dataType: "json",
                         success: function(data) {
-                            if (data.code == 0) {
+                            if (data.code === 0) {
                                 //alert(data.msg);
                                 location.href = "/index.php/user/reg2";
                             } else {
@@ -88,9 +88,8 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 						<input name="password_confirm" type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
 					</div>
 					<div class="btn-box">
-						<a href="register2.php">
 					    	<button data-p="step-1" data-n="step-2" type="submit" class="btn primary-bg">Next</button>
-						</a>
+						
 					</div>
 				</div>
 				</form>

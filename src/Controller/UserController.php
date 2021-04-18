@@ -84,14 +84,68 @@ class UserController extends AppController {
      * 注册
      */
     public function reg2() {
-
+		
+		if ($this->request->is('post')) {
+        	$this->render(false);
+        	
+            $validator = new Validator();
+		// Prior to 3.9 use $validator->errors()
+			$errors = $validator->validate($this->request->getData());
+			//var_dump($errors);exit;
+			if (empty($errors)) {
+				$res = array(
+					'code' => 0,
+					'result' => [],
+					'msg' => ''
+				);
+			} else {
+				//print_r(array_values($errors)[0][key(array_values($errors)[0])]);
+				$res = array(
+					'code' => 1,
+					'result' => $errors,
+					//'result' => array_slice(array_values($errors), 0, 1),
+					//'result' => array_values($errors)[0],
+					'msg' => array_values($errors)[0][key(array_values($errors)[0])]
+				);
+			}
+			
+			echo json_encode($res);exit;
+		}
     }
 
     /**
      * 注册
      */
     public function reg3() {
-
+    	
+    	if ($this->request->is('post')) {
+        	$this->render(false);
+        	
+            $validator = new Validator();
+            
+		// Prior to 3.9 use $validator->errors()
+			$errors = $validator->validate($this->request->getData());
+			//var_dump($errors);exit;
+			if (empty($errors)) {
+				$res = array(
+					'code' => 0,
+					'result' => [],
+					'msg' => ''
+				);
+			} else {
+				//print_r(array_values($errors)[0][key(array_values($errors)[0])]);
+				$res = array(
+					'code' => 1,
+					'result' => $errors,
+					//'result' => array_slice(array_values($errors), 0, 1),
+					//'result' => array_values($errors)[0],
+					'msg' => array_values($errors)[0][key(array_values($errors)[0])]
+				);
+			}
+			
+			echo json_encode($res);exit;
+    	}
+    	
     }
 
 }
