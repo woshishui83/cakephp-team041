@@ -35,35 +35,9 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 	<head>
 		<meta charset="UTF-8">
 		<title>Register</title>
-    	<link rel="stylesheet" href="/webroot/css/team041/bootstrap.css" />
-    	<link rel="stylesheet" href="/webroot/css/team041/common.css" />
-    	<link rel="stylesheet" href="/webroot/css/team041/register.css" />
-
-        <script type="text/javascript" src="/webroot/js/team041/jquery-1.10.2.min.js" ></script>
-        <script type="text/javascript" src="/webroot/js/team041/jquery.form.min.js" ></script>
-        <script type="text/javascript" src="/webroot/js/team041/jquery.validate.min.js" ></script>
-    	<script type="text/javascript">
-        $(function() {
-            //表单验证
-            $('#form_step1').validate({
-                ignore: "",
-                submitHandler: function(form) {
-                    $(form).ajaxSubmit({
-                        dataType: "json",
-                        success: function(data) {
-                            if (data.done) {
-                                alert(data.msg);
-                                location.href = "{url app=driver_route}";
-                            } else {
-                                alert(data.msg);
-                            }
-                        }
-                    });
-                }
-            });
-
-        });
-        </script>
+		<?= $this->Html->css('team041/bootstrap.css') ?>
+    	<?= $this->Html->css('team041/common.css') ?>
+    	<?= $this->Html->css('team041/register.css') ?>
 	</head>
 	<body>
 		<div class="img-bg-box">
