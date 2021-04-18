@@ -103,3 +103,17 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 		</div>
 	</body>
 </html>
+<script type="text/javascript">
+	$(function() {
+		$(".choose-btn").click(function() {
+			if ($(this).is(".active")) {
+				//$(this).siblings().removeClass("active");
+				$(this).removeClass("active");
+			} else {
+				$(this).addClass("active");
+			}
+	        
+	        
+	    });
+	});
+</script>

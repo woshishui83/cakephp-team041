@@ -80,18 +80,18 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 				    <div class="title">FILL IN PERSONAL INFORMATION</div>
 					<div class="input-group">
 						<div>Phone Number:</div>
-						<input type="text" class="form-control" placeholder="phone" aria-describedby="basic-addon1">
+						<input name="phone" type="text" class="form-control" placeholder="phone" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 						<div>Date Of Birth:</div>
-						<input type="text" class="form-control" placeholder="Date Of Birth" aria-describedby="basic-addon1">
+						<input name="birth" type="text" class="form-control" placeholder="Date Of Birth" aria-describedby="basic-addon1">
 					</div>
 					<div class="input-group">
 						<div>Living Area:</div>
 						<div class="input-box">
-						    <input type="text" class="form-control" placeholder="Country" aria-describedby="basic-addon1">
-						    <input type="text" class="form-control" placeholder="State" aria-describedby="basic-addon1">
-						    <input type="text" class="form-control" placeholder="City" aria-describedby="basic-addon1">
+						    <input name="country" type="text" class="form-control" placeholder="Country" aria-describedby="basic-addon1">
+						    <input name="state" type="text" class="form-control" placeholder="State" aria-describedby="basic-addon1">
+						    <input name="city" type="text" class="form-control" placeholder="City" aria-describedby="basic-addon1">
 						</div>
 					</div>
 					<div class="btn-box">
