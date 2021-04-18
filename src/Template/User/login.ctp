@@ -46,7 +46,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
 			<div class="title">DANUBE TRAVER AGENCY</div>
 			<div class="text">
 				<span>
-					<a href="./admin/login/login.php">Sign in / Register</a>
+					<a href="/index.php/user/reg">Sign in / Register</a>
 				</span>
 			</div>
 		</div>
